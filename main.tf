@@ -5,10 +5,6 @@ resource "hcloud_server" "this" {
   location    = var.location
   ssh_keys    = var.ssh_keys
   backups     = var.enable_backup
-
-  depends_on = [
-    hcloud_network_subnet.network_subnet_default
-  ]
 }
 
 resource "hcloud_server_network" "vm_network" {
