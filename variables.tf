@@ -39,3 +39,9 @@ variable "ip_address" {
   description = "The IP address to be assigned to the VM"
   type        = string
 }
+
+variable "cloud_init_data" {
+  description = "Cloud-Init user data to use during VM creation"
+  type        = string
+  default     = ""
+}

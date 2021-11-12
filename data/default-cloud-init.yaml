@@ -1,0 +1,13 @@
+#cloud-config
+packages:
+  - yum-utils
+
+package_upgrade: true
+package_update: true
+
+power_state:
+  delay: "now"
+  mode: reboot
+  message: Rebooting to apply updates
+  timeout: 30
+  condition: True

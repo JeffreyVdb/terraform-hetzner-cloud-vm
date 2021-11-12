@@ -1,3 +1,7 @@
+locals {
+  cloud_init_data = var.cloud_init_data != "" ? var.cloud_init_data : file("${path.module}/data/default-cloud-init.yaml")
+}
+
 resource "hcloud_server" "this" {
   name        = var.name
   image       = var.image
@@ -5,6 +9,7 @@ resource "hcloud_server" "this" {
   location    = var.location
   ssh_keys    = var.ssh_keys
   backups     = var.enable_backup
+  user_data   = local.cloud_init_data
 }
 
 resource "hcloud_server_network" "vm_network" {
